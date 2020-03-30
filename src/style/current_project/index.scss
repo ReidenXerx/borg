@@ -1,0 +1,1149 @@
+$gray: rgba(42, 42, 46, 1);
+$blue: rgba(79, 195, 247, 1);
+$green: rgba(77, 182, 172, 1);
+$l_green: rgba(0, 255, 217, 1);
+$d_green: rgba(38, 92, 87, 1);
+$d_gray: rgba(38, 38, 42, 1);
+$l_gray: rgba(74, 74, 79, 1);
+$white: rgba(198, 198, 198, 1);
+$whitesnow: rgba(235, 235, 235, 1);
+$trans: rgba(0, 0, 0, 0);
+
+$jura: 'Jura', sans-serif;
+$oswald: 'Oswald', sans-serif;
+$mont: 'Montserrat', sans-serif;
+$roboto: 'Roboto Condensed', sans-serif;
+
+html {
+	    font-family: $mont;
+			@include SetBackground(solid, $gray);
+			overflow-x: hidden;
+
+			a {
+				text-decoration: none;
+			}
+
+			ul {
+				margin: 0;
+			}
+
+			li {
+				list-style: none;
+			}
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-thumb {
+	background: $l_green;
+	//border-radius: 6px;
+}
+//////////////HEADER///////////////////////////////////////////////////
+
+.sidebar-hidden {
+	width: 75px !important;
+	@include _phone-big { height: 75px !important; width: 100vh !important; }
+	.content { display: none; }
+	.big { display: none !important; }
+	.small { display: block !important; }
+
+	&:hover {
+		background: none !important;
+	}
+}
+
+.sidebar-header::-webkit-scrollbar {
+	display: none;
+}
+
+.sidebar-header {
+	position: fixed;
+	width: 340px;
+	overflow: auto;
+	@include _phone-big { width: 100vh; }
+	max-width: 100vw;
+	@include SetBackground(solid, $d_gray);
+	z-index: 9999;
+	height: 100vh;
+	-ms-overflow-style: none;
+
+	.content {
+		height: 100vh;
+		min-height: 600px;
+		@include _phone-big {  min-height: auto; }
+		align-items: center;
+	}
+	.big { display: block; }
+	.small { display: none; }
+
+	.menu-toggler {
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		color: $l_green;
+	}
+
+	.logo-wrap {
+		width: 30px;
+		margin-bottom: 35px;
+		margin-top: auto;
+		@include _phone-big { margin-bottom: 15px; }
+		@include _phone-small { display: none; }
+	}
+
+	.icon-wrap {
+		width: 40px;
+		height: 40px;
+		border-radius: 6px;
+		background: $blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include SetMargins(vertical, 100, 15);
+		@include _desktop-small { @include SetMargins(vertical, 50, 15); }
+	}
+
+	.fas {
+		font-size: 24px;
+	}
+
+	p, a {
+		font-size: 16px;
+		line-height: 32px;
+		text-align: center;
+		@include SetPaddings(vertical, 5, 5);
+	}
+	p {
+		color: #7f7f8d;
+		font-weight: 600;
+		letter-spacing: 3px;
+	}
+	a {
+		width: 100%;
+		display: block;
+		color: $white;
+		font-weight: 700;
+	}
+
+	.li-selected {
+		background: $green;
+		color: $d_gray !important;
+	}
+
+	.sidebar-menu {
+		width: 100%;
+	}
+
+	.switch-item {
+		color: $white;
+		font-size: 14px;
+		font-weight: 700;
+		@include SetMargins(vertical, 20, 20);
+		display: flex;
+		letter-spacing: 2px;
+		width: 80%;
+		justify-content: space-between;
+	}
+}
+
+.switch {
+	background: #323237;
+	width: 40px;
+	height: 15px;
+	border-radius: 10px;
+	position: relative;
+	margin-left: 20px;
+
+	.bulb {
+		background: $l_green;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: -2.5px;
+		left: -2.5px;
+		border-radius: 50%;
+	}
+
+	.offline {
+		background: rgba(86, 86, 86, 1) !important;
+		left: 20px !important;
+	}
+}
+
+
+
+/////////////////////////UTP////////////////////////////////////////
+
+.button-sturdy {
+	@include SetFontLineSize(0.2, 0.6, 0.2, 28, 100);
+	@include SetFontVars(700, 0.05, $gray, uppercase);
+	display: block;
+	width: auto;
+	cursor: pointer;
+	background: $blue;
+	text-decoration: none;
+	border-radius: RelativeUnits(15, 1, desktop-middle, horizontal);
+	@include SetPaddings(horizontal, 70, 70);
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		color: $gray;
+		background: $green;
+		transition: 1s;
+	}
+
+}
+.logo-button{
+	align-self: flex-end;
+	margin-top: RelativeUnits(100, 1, desktop-middle, vertical);
+}
+
+.main_screen {
+
+	.main_container-vertical {
+		@include SetWidth-responsive(1700);
+		margin-bottom: RelativeUnits(130, 1, desktop-middle, horizontal);
+
+		.main_title {
+			@include SetFlexJustify(space-between);
+			@include SetFlexAlign(center);
+			height: 100vh;
+
+			.main-text {
+				@include SetWidth-responsive(715);
+			}
+			.main_logo{
+				@include SetWidth-responsive(910);
+				//height: RelativeUnits(995, 1, desktop-middle, horizontal);
+				position: relative;
+
+				.star-wrap {
+					position: absolute;
+					@include SetWidth-responsive(60);
+				}
+				.romb-wrap {
+					position: absolute;
+					@include SetWidth-responsive(35);
+				}
+
+			}
+
+			.p-wrap {
+				position: absolute;
+				//transition: cubic-bezier(1,0,0,1);
+			}
+
+			.ap {
+				@include SetWidth-responsive(135);
+				top: RelativeUnits(690, 1, desktop-middle, horizontal);
+				left: RelativeUnits(220, 1, desktop-middle, horizontal);
+				@include _tablet-middle {
+					top: RelativeUnits(590, 1, desktop-middle, horizontal);
+					left: RelativeUnits(200, 1, desktop-middle, horizontal);
+				}
+				animation: move-p 2s infinite alternate;
+				animation-timing-function: linear;
+				animation-delay: -1s;
+			}
+
+			.gp {
+				@include SetWidth-responsive(180);
+				top: RelativeUnits(150, 1, desktop-middle, horizontal);
+				left: RelativeUnits(220, 1, desktop-middle, horizontal);
+				@include _tablet-middle {
+					top: RelativeUnits(108, 1, desktop-middle, horizontal);
+					left: RelativeUnits(185, 1, desktop-middle, horizontal);
+				}
+				animation: move-p 2s infinite alternate;
+				animation-timing-function: linear;
+				animation-delay: -1.5s;
+			}
+
+			.sp {
+				@include SetWidth-responsive(160);
+				top: RelativeUnits(650, 1, desktop-middle, horizontal);
+				left: RelativeUnits(560, 1, desktop-middle, horizontal);
+				@include _tablet-middle {
+					top: RelativeUnits(550, 1, desktop-middle, horizontal);
+					left: RelativeUnits(476, 1, desktop-middle, horizontal);
+				}
+			}
+
+			.ip {
+				@include SetWidth-responsive(60);
+				top: RelativeUnits(280, 1, desktop-middle, horizontal);
+				left: RelativeUnits(650, 1, desktop-middle, horizontal);
+				@include _tablet-middle {
+					top: RelativeUnits(225, 1, desktop-middle, horizontal);
+					left: RelativeUnits(570, 1, desktop-middle, horizontal);
+				}
+				animation: move-p 2s infinite alternate;
+				animation-timing-function: linear;
+			}
+
+			@keyframes move-p {
+			  from { transform: translateY(-5px); }
+			  to { transform: translateY(5px); }
+			}
+
+			h1 {
+				@include SetFontLineSize(0.1, 0.77, 0.13, 36, 18);
+				@include SetFontVars(700, 0.1, $blue, uppercase);
+				margin-top: RelativeUnits(40, 1, desktop-middle, vertical);
+				margin-bottom: RelativeUnits(40, 1, desktop-middle, vertical);
+				white-space: nowrap;
+				//font-family: $oswald;
+			}
+			p {
+				@include SetFontLineSize(0.3, 0.3, 0.4, 18, 18);
+				@include SetFontVars(normal, 0.1, $whitesnow, lowercase);
+				padding-left: RelativeUnits(30, 1, desktop-middle, horizontal);
+				font-family: $jura;
+			}
+
+
+		@include _tablet-middle {
+			@include ToVertical();
+			@include SetFlexJustify(space-around);
+			@include SetFlexAlign(center);
+			@include SetTextAlign(center);
+			.main-text {
+				@include SetWidth-responsive(1700);
+			}
+			.main_logo{
+				@include SetWidth-responsive(800);
+				align-self: center;
+			}
+			.rect-small, p{ display: none; }
+			.logo-button{
+				align-self: center;
+			}
+		}
+
+
+		}
+
+	}
+}
+.rect-small {
+	height: RelativeUnits(27, 1, desktop-middle, vertical);
+  width: RelativeUnits(11, 1, desktop-middle, horizontal);
+  background-color: $green;
+}
+.a-items-center {
+	align-items: center;
+}
+//////////////////////////////TEXT//////////////////////
+.text-block {
+	@include SetWidth-responsive(1250);
+}
+.title-wrap, .title-wrap-reverse {
+	border-left: RelativeUnits(17, 1, desktop-middle, horizontal) solid $green;
+	padding-left: RelativeUnits(30, 1, desktop-middle, horizontal);
+	justify-content: space-between;
+	h1 {
+		@include SetFontLineSize(0.3, 0.4, 0.3, 48, -8);
+		@include SetFontVars(700, 0, $blue, uppercase);
+		font-family: $oswald;
+		white-space: nowrap;
+	}
+	h2 {
+		@include SetFontLineSize(0.3, 0.4, 0.3, 24, 0);
+		@include SetFontVars(700, 0.1, $whitesnow, uppercase);
+		@include SetPaddings(vertical, 20 , 0);
+		white-space: nowrap;
+
+	}
+}
+
+.title-wrap-reverse {
+	border-right: RelativeUnits(17, 1, desktop-middle, horizontal) solid $green;
+	padding-right: RelativeUnits(30, 1, desktop-middle, horizontal);
+	border-left: none;
+	padding-left: 0;
+	h1, h2 {
+		text-align: right;
+	}
+}
+
+.text-wrap {
+	margin-top: RelativeUnits(30, 1, desktop-middle, vertical);
+	p {
+		@include SetFontLineSize(0.3, 0.3, 0.4, 24, 30);
+		@include SetFontVars(400, 0, $whitesnow, inherit);
+
+		font-family: $jura;
+	}
+}
+///////////////////////////////STARS//////////////////
+@mixin pos-x {
+  @for $i from 1 through 4000
+	{
+		.posx-#{$i} { left: RelativeUnits($i, 1, desktop-middle, horizontal); }
+	}
+}
+@mixin pos-y {
+  @for $i from 1 through 4000
+	{
+		.posy-#{$i} { top: RelativeUnits($i, 1, desktop-middle, horizontal); }
+	}
+}
+@mixin posp-x {
+  @for $i from 1 through 100
+	{
+		.pospx-#{$i} { left: $i*1%; }
+	}
+}
+@mixin posp-y {
+  @for $i from 1 through 100
+	{
+		.pospy-#{$i} { top: $i*1%; }
+	}
+}
+@mixin -posp-x {
+  @for $i from 1 through 100
+	{
+		.-pospx-#{$i} { left: $i*-1%; }
+	}
+}
+@mixin -posp-y {
+  @for $i from 1 through 100
+	{
+		.-pospy-#{$i} { top: $i*-1%; }
+	}
+}
+@include pos-x;
+@include pos-y;
+@include posp-x;
+@include posp-y;
+@include -posp-x;
+@include -posp-y;
+@mixin SetPosition($left: 0, $top: 0)
+{
+	left: RelativeUnits($left, 1, desktop-middle, vertical);
+	top: RelativeUnits($top, 1, desktop-middle, vertical);
+}
+.stars {
+	height: RelativeUnits(500, 1, desktop-middle, horizontal);
+	@include SetMargins(vertical, 350, 350);
+	@include _tablet-big {
+		@include SetMargins(vertical, 150, 150);
+	}
+	@include _tablet-middle {
+		@include SetMargins(vertical, 75, 75);
+	}
+	@include _phone-big {
+		@include SetMargins(vertical, 50, 50);
+	}
+	position: relative;
+	background: no-repeat url(/img/stars.svg);
+	background-size: cover;
+	background-position: center;
+}
+
+.ship {
+	@include SetWidth-responsive(330);
+	position: absolute;
+	right: 0%;
+	top: 30%;
+	transition: 0.1s linear;
+}
+.rotated {
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+.star-wrap {
+	position: absolute;
+	@include SetWidth-responsive(20);
+}
+.romb-wrap {
+	position: absolute;
+	@include SetWidth-responsive(12);
+}
+.pixel-wrap {
+	position: absolute;
+	@include SetWidth-responsive(6);
+}
+.shining {
+	animation: shine 1s infinite alternate;
+}
+.shining2 {
+	animation: shine2 1s infinite alternate;
+}
+@keyframes shine {
+  from { @include TransformScale(1.0, 1.0); }
+  to { @include TransformScale(1.4, 1.4); }
+}
+@keyframes shine2 {
+  from { @include TransformScale(1.4, 1.4); }
+  to { @include TransformScale(1.0, 1.0); }
+}
+//////////////////////////FEATURES/////////////////////
+.feature-wrap {
+	@include SetWidth-responsive(1420);
+	display: flex;
+	flex-direction: row;
+	min-height: RelativeUnits(575, 1, desktop-middle, vertical);
+
+	.particles {
+		background: url("/img/pixel-group.png") no-repeat;
+		@include SetWidth-responsive(110);
+		height: 100%;
+		background-size: contain;
+		@include _phone-big {display: none; }
+	}
+
+	.feature-text-wrap {
+		@include SetMargins(horizontal, 175, 125);
+		@include SetWidth-responsive(750);
+		justify-content: center;
+		align-items: flex-start;
+		@include _phone-big {align-items: center !important; }
+
+		h1 {
+			@include SetFontLineSize(0.3, 0.4, 0.3, 48, 18);
+			@include SetFontVars(700, 0, $gray, uppercase);
+			font-family: $oswald;
+			@include SetMargins(vertical, 0, 30);
+			background: $l_green;
+			padding: 10px 20px;
+			width: fit-content;
+		}
+		p {
+			@include SetFontLineSize(0.2, 0.2, 0.6, 14, 22);
+			@include SetFontVars(300, 0, $whitesnow, auto);
+			font-family: $jura;
+		}
+	}
+	.feature-img-wrap {
+		min-width:  RelativeUnits(550, 1, desktop-middle, horizontal);
+		//@include SetWidth-responsive(550);
+		position: relative;
+	}
+	.particles {
+
+		@include SetMargins(horizontal, -100, 20);
+	}
+
+}
+
+.reverse {
+	flex-direction: row-reverse;
+	.feature-text-wrap {
+		@include SetMargins(horizontal, 125, 175);
+		align-items: flex-end;
+		h1, p {
+			text-align: right;
+		}
+
+		.particles {
+			@include SetMargins(horizontal, 20, -100);
+		}
+	}
+}
+.sq { max-height: RelativeUnits(550, 1, desktop-middle, horizontal); }
+.cube {
+	bottom: 44.5%;
+	left: 44.5%;
+	position: absolute;
+	@include SetWidth-responsive(50);
+}
+$speed: 35s;
+.c1 {
+	animation: orbit1 $speed infinite linear;
+}
+.c2 {
+	animation: orbit2 $speed infinite linear;
+}
+.c3 {
+	animation: orbit3 $speed infinite linear;
+}
+$size: 450%;
+@keyframes orbit1 {
+    from { transform: rotate(-60deg) translateX($size) rotate(60deg); }
+    to   { transform: rotate(300deg) translateX($size) rotate(-300deg); }
+}
+@keyframes orbit2 {
+    from { transform: rotate(-180deg) translateX($size) rotate(180deg); }
+    to   { transform: rotate(180deg) translateX($size) rotate(-180deg); }
+}
+@keyframes orbit3 {
+    from { transform: rotate(-300deg) translateX($size) rotate(300deg); }
+    to   { transform: rotate(60deg) translateX($size) rotate(-60deg); }
+}
+@include _tablet-middle {
+	.feature-wrap {
+		@include SetWidth-responsive(1700);
+		flex-direction: column;
+		align-items: center;
+		min-height: RelativeUnits(375, 1, desktop-middle, vertical);
+
+		.feature-text-wrap {
+			@include SetWidth-responsive(1700);
+
+			p, h1 {
+				text-align: center;
+			}
+		}
+		.feature-img-wrap {
+			@include SetMargins(vertical, 50, 50);
+		}
+	}
+	.reverse {
+		flex-direction: column;
+	}
+}
+
+//////////////////////STATISTICS////////////////////////
+@mixin -hp {
+  @for $i from 1 through 100
+	{
+		.hp-#{$i} { height: $i*1%; }
+	}
+}
+@include -hp;
+
+.no-height {
+	height: 0 !important;
+}
+
+
+.statistics-section {
+	width: 100%;
+	height: RelativeUnits(900, 1, desktop-middle, horizontal);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row; /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+	background: -webkit-linear-gradient($trans 0%, $trans 50%, $blue 50%, $blue 100%);
+	background: -o-linear-gradient($trans 0%, $trans 50%, $blue 50%, $blue 100%);
+	background: linear-gradient($trans 0%, $trans 50%, $blue 50%, $blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	margin-top: RelativeUnits(175, 1, desktop-middle, horizontal);
+	margin-bottom: RelativeUnits(320, 1, desktop-middle, horizontal);
+
+	.stat-wrap {
+		width: 20%;
+		height: 100%;
+		align-items: center;
+		position: relative;
+		justify-content: flex-start;
+
+		.stat-column {
+			position: absolute;
+			bottom: calc(50% + 2px);
+			@include SetWidth-responsive(100);
+			background: $blue;
+			transition: ease-in 2s;
+		}
+		.deco-line {
+			width: 2px;
+			height: RelativeUnits(145, 1, desktop-middle, horizontal);
+			background: $gray;
+			margin-top: 115%;
+			//@include SetMargins(vertical, 450, 0);
+		}
+		.square {
+			width: 10px;
+			height: 10px;
+			background: $gray;
+			margin-bottom: 10%;
+		}
+
+		h1, h2 {
+			@include SetFontVars(700, 0, $gray, uppercase);
+			font-family: $oswald;
+		}
+		h1 {	@include SetFontLineSize(0.1, 0.8, 0.1, 72, 10);	}
+		h2 {	@include SetFontLineSize(0.1, 0.7, 0.2, 30, 10);	}
+	}
+}
+//////////////////QUALITY////////////////////////////////
+
+.asteroid-included {
+	background: no-repeat url("/img/asteroid.svg");
+	background-position: 12% top;
+	background-size: RelativeUnits(355, 1, desktop-middle, horizontal) RelativeUnits(355, 1, desktop-middle, horizontal);
+}
+
+.quality-section {
+	@include SetWidth-responsive(1230);
+	display: flex;
+	flex-direction: column;
+}
+
+.title-wrap-small {
+
+	h1 {
+		@include SetFontLineSize(0.3, 0.4, 0.3, 30, -8);
+		@include SetFontVars(700, 0, $l_green, uppercase);
+		font-family: $oswald;
+		white-space: nowrap;
+		margin-top: RelativeUnits(80, 1, desktop-middle, horizontal);
+		margin-bottom: RelativeUnits(130, 1, desktop-middle, horizontal);
+	}
+}
+
+.quality-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.quality-wrap {
+		display: flex;
+		@include SetWidth-responsive(530);
+		@include _phone-big { min-width: 250px; }
+		justify-content: space-between;
+
+		.icon-wrap {
+			width: RelativeUnits(58, 1, desktop-middle, horizontal);
+			min-width: 30px;
+			height: RelativeUnits(58, 1, desktop-middle, horizontal);
+			min-height: 30px;
+			border-radius: 6px;
+			background: $blue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include SetMargins(horizontal, 0, 30);
+
+			.fas {
+				@include SetFontLineSize(0.3, 0.4, 0.3, 24, -8);
+			}
+		}
+
+		.quality-content {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: RelativeUnits(150, 1, desktop-middle, horizontal);
+			@include SetWidth-responsive(480);
+			@include _phone-big { width: auto; }
+
+			h1 {
+				@include SetFontLineSize(0.3, 0.4, 0.3, 18, 36);
+				@include SetFontVars(400, 0, $whitesnow, uppercase);
+			}
+			p {
+				@include SetFontLineSize(0.3, 0.2, 0.5, 14, 14);
+				@include SetFontVars(400, 0, $whitesnow, auto);
+				white-space: normal;
+			}
+		}
+	}
+}
+///////////////////////SATURN//////////////////////////
+.saturn-decor {
+	background: no-repeat url("/img/saturn-gradient-blue.svg");
+	background-size: auto RelativeUnits(166, 1, desktop-middle, horizontal);
+	background-position: center bottom;
+}
+.saturn-decor, .no-saturn-decor {
+	height: RelativeUnits(300, 1, desktop-middle, horizontal);
+	width: 100%;
+	position: relative;
+	.star-wrap {
+		position: absolute;
+		@include SetWidth-responsive(90);
+	}
+	.romb-wrap {
+		position: absolute;
+		@include SetWidth-responsive(40);
+	}
+	.pixel-wrap {
+		position: absolute;
+		@include SetWidth-responsive(25);
+	}
+}
+////////////////////TIMELINE/////////////////////////////
+
+.timeline-wrap {
+	@include SetWidth-responsive(1180);
+	margin-top: RelativeUnits(275, 1, desktop-middle, horizontal);
+	margin-bottom: RelativeUnits(250, 1, desktop-middle, horizontal);
+
+	.title-wrap {
+		border-left: RelativeUnits(17, 1, desktop-middle, horizontal) solid $blue;
+
+			h1 {
+			 color: $l_green;
+		 }
+	}
+
+	p {
+		@include SetFontLineSize(0.3, 0.3, 0.4, 16, 14);
+		@include SetFontVars(400, 0, $whitesnow, auto);
+		white-space: normal;
+		@include SetMargins(horizontal, 40, 40);
+		margin-top: RelativeUnits(90, 1, desktop-middle, horizontal);
+		margin-bottom: RelativeUnits(60, 1, desktop-middle, horizontal);
+	}
+
+	.timeline-content {
+				border-top: 1px solid #6d6d99;
+				padding-top: RelativeUnits(135, 1, desktop-middle, horizontal);
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+
+				.circle {
+					width: 12px;
+					height: 12px;
+					border-radius: 50%;
+					z-index: 1;
+					padding: 1px;
+					margin-left: 40px;
+				}
+				.square {
+					width: 16px;
+					height: 16px;
+					margin-left: 16px;
+					@include _phone-big {
+						display: none;
+					}
+				}
+				.s1 { background: #00c5f9; }
+				.s2 { background: #00e6ff; }
+				.s3 { background: #00ffff; }
+				.s4 { background: #00ffda; }
+				.s5 { background: #00b8ad; }
+
+				.timeline-el {
+					display: flex;
+					flex-direction: column;
+					border-left: 1px solid #6d6d99;
+					margin-left: -7px;
+					@include SetWidth-responsive(650);
+					margin-right: RelativeUnits(120, 1, desktop-middle, horizontal);
+					@include _phone-big { margin-right: 0; }
+					@include _phone-big {
+						width: 60vw;
+					}
+					padding-left: 35px;
+					padding-top: RelativeUnits(30, 1, desktop-middle, horizontal);
+					padding-bottom: RelativeUnits(60, 1, desktop-middle, horizontal);
+					margin-top: RelativeUnits(-37, 1, desktop-middle, horizontal);
+
+					p {
+						margin: 0;
+						@include SetFontLineSize(0.3, 0.1, 0.6, 12, 14);
+					}
+					h2 {
+						@include SetFontLineSize(0.3, 0.1, 0.6, 14, 14);
+						@include SetFontVars(700, 0.1, $whitesnow, auto);
+					}
+				}
+	}
+}
+.b-p {
+	background-position: 85% 38%;
+}
+
+/////////////////////PORTFOLIO//////////////////////////
+
+.gallery {
+	@include SetWidth-responsive(1200);
+	margin-bottom: RelativeUnits(390, 1, desktop-middle, horizontal);
+	margin-top: RelativeUnits(390, 1, desktop-middle, horizontal);
+
+	.buttons-array {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		@include SetMargins(vertical, 65, 40);
+		@include _tablet-small {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		p {
+			@include SetFontLineSize(0.1, 0.1, 0.8, 14, 20);
+			@include SetFontVars(700, 0, $whitesnow, auto);
+			font-family: $jura;
+			@include SetMargins(horizontal, 0, 130);
+			white-space: nowrap;
+			cursor: pointer;
+
+			@include _tablet-small {
+				@include SetMargins(vertical, 8, 8);
+				@include SetFontLineSize(0.1, 0.1, 0.8, 20, 20);
+			}
+		}
+
+		.selected {
+			color: $gray;
+			background: $blue;
+			border-radius: 6px;//RelativeUnits(6, 1, desktop-middle, horizontal);
+			@include SetPaddings(horizontal, 27, 27);
+
+			@include _tablet-small {
+				@include SetPaddings(horizontal, 50, 50);
+				@include SetPaddings(vertical, 0, 5);
+				margin-left: RelativeUnits(50, 1, desktop-middle, horizontal);
+			}
+		}
+	}
+	.flex {
+		display: flex !important;
+	}
+	.gallery-items {
+		border-top: 1px solid #6d6d99;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		@include SetPaddings(vertical, 50, 0);
+		display: none;
+
+		@include _tablet-small {
+			justify-content: center;
+		}
+
+		.item {
+			background: $l_gray;
+			@include SetWidth-responsive(229);
+			height: RelativeUnits(209, 1, desktop-middle, horizontal);
+			border-radius: RelativeUnits(10, 1, desktop-middle, horizontal);
+			@include SetMargins(horizontal, 0, 229);
+			@include SetMargins(vertical, 0, 100);
+			&:nth-child(3n) { margin-right: 0; }
+
+			@include _tablet-small {
+				@include SetWidth-responsive(1029);
+				height: RelativeUnits(1009, 1, desktop-middle, horizontal);
+				@include SetMargins(horizontal, 0, 0);
+			}
+		}
+	}
+}
+/////////////////////WARP DESKTOP///////////////////
+.workspace {
+	@include SetWidth-responsive(1920);
+	height: 100vh;
+	justify-content: center;
+}
+#warp {
+		@include SetWidth-responsive(1920);
+		height: 100vh;
+}
+@media screen and (orientation: portrait) {
+	.workspace { display: none; }
+}
+.workspace-bg {
+		@include SetWidth-responsive(1920);
+		height: 100vh;
+		background: url("/img/workspace.svg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center top;
+		position: absolute;
+		//z-index: 10;
+}
+.workspace-form {
+	position: absolute;
+	padding: 10px;
+	background: $d_gray;
+}
+@media screen and (orientation: landscape) {
+	.mobile-form { display: none !important; }
+}
+.mobile-form {
+
+}
+
+.callback-form {
+	//@include SetMargins(vertical, 80, 100);
+	//margin-top: -90vh;
+	width: 50%;
+	min-width: 300px;
+	display: flex;
+	flex-direction: column;
+	input, textarea, button {
+		border: none;
+	}
+	button {
+		align-self: center;
+		@include SetMargins(vertical, 50, 0);
+	}
+	input, textarea {
+		@include SetFontLineSize(0.1, 0.1, 0.8, 14, 40);
+		@include SetFontVars(700, 0, $whitesnow, auto);
+		@include SetPaddings(horizontal, 30, 30);
+		@include SetMargins(vertical, 0, 56);
+		background: $l_gray;
+		font-family: $mont;
+		border-radius: RelativeUnits(5, 1, desktop-middle, horizontal);
+		box-sizing: border-box;
+		resize: none;
+		text-align: right;
+			//z-index: 1;
+	}
+}
+/////////////////////////////CALLBACK FORM////////////
+.callback-wrap {
+	height: 100vh;
+	@include SetWidth-responsive(1200);
+
+	.title-wrap {
+		align-self: flex-start;
+
+		h1 {
+			@include SetFontLineSize(0.2, 0.8, 0.2, 48, -8);
+		}
+		h2 {
+			@include SetFontLineSize(0.2, 0.8, 0.2, 24, 0);
+		}
+	}
+}
+.callback-form-custom {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	input, textarea, button {
+		border: none;
+	}
+	button {
+		align-self: center;
+		@include SetMargins(vertical, 50, 0);
+	}
+
+	.input-box {
+		position: relative;
+		width: 100%;
+		height: 40px;
+		color: $green;
+		margin-top: 60px;
+
+		input, textarea {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			border: none;
+			outline: none;
+			box-shadow: none;
+			//font-size: 18px;
+			@include SetFontLineSize(0.2, 0.2, 0.8, 18, 0);
+			padding: 0 10px;
+			z-index: 1;
+			color: $gray;
+			font-family: $mont;
+
+			&:focus + .text, &:valid + .text {
+				top: -35px;
+				left: -10px;
+			}
+			&:focus ~ .line, &:valid ~ .line {
+				height: 100%;
+
+			}
+		}
+
+		.text {
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include SetFontLineSize(0.2, 0.2, 0.8, 18, 20);
+			//line-height: 40px;
+			//font-size: 18px;
+			padding: 0 10px;
+			display: block;
+			transition: 0.5s;
+			pointer-events: none;
+			font-family: $oswald;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.line {
+			position: absolute;
+			display: block;
+			bottom: 0;
+			width: 100%;
+			height: 2px;
+			background: $green;
+			transition: 0.5s;
+			border-radius: 2px;
+			pointer-events: none;
+
+		}
+	}
+	.textarea {
+		width: 100%;
+		height: 100px;
+		padding: 10px 0;
+
+		textarea {
+			height: 100%;
+			resize: none;
+		}
+	}
+}
+//////////////////////MISC//////////////////////////
+section {
+	position: relative;
+}
+.crop {
+	overflow: hidden;
+}
+.lightbulb {
+	position: absolute;
+	@include SetWidth-responsive(1700);
+	height: RelativeUnits(1700, 1, desktop-middle, horizontal);
+	z-index: -99999;
+
+	background: rgba(56,58,84,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(56,58,84,1) 0%, rgba(42,42,46,1) 72%, rgba(42,42,46,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(56,58,84,1)), color-stop(72%, rgba(42,42,46,1)), color-stop(100%, rgba(42,42,46,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(56,58,84,1) 0%, rgba(42,42,46,1) 72%, rgba(42,42,46,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(56,58,84,1) 0%, rgba(42,42,46,1) 72%, rgba(42,42,46,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(56,58,84,1) 0%, rgba(42,42,46,1) 72%, rgba(42,42,46,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(56,58,84,1) 0%, rgba(42,42,46,1) 72%, rgba(42,42,46,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#383a54', endColorstr='#2a2a2e', GradientType=1 );
+
+}
+.meteor-wrap {
+	position: absolute;
+	@include SetWidth-responsive(100);
+	z-index: -99990;
+	color: red;
+	transition: 1s linear;
+}
+
+@mixin -meteor-mov {
+  @for $i from 1 through 360
+	{
+		.meteor-mov-#{$i} { @include TransformRotate($i+deg); }
+	}
+}
+@include -meteor-mov;
+
+.meteor-mov {
+	//@include TransformRotate(35deg);
+	//animation: move 10s infinite;
+}
+@keyframes move {
+  from {
+		@include TransformRotate(35deg);
+		transform: translate(0, 350px);
+		-webkit-transform: translate(0, 350px);
+		-o-transform: translate(0, 350px);
+		-moz-transform: translate(0, 350px);
+	}
+  to {
+		@include TransformRotate(35deg);
+
+	}
+
+}
+
+	@mixin TransformXY ($X, $Y) {
+		transform: translate($X, $Y);
+		-webkit-transform: translate($X, $Y);
+		-o-transform: translate($X, $Y);
+		-moz-transform: translate($X, $Y);
+	}

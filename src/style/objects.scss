@@ -1,0 +1,112 @@
+
+.adaptive_header {
+		position: fixed;
+		display: flex;
+		height: 100px;
+		justify-content: space-between;
+
+		#check {
+			position: absolute;
+			visibility: hidden;
+			z-index: -1111;
+		}
+
+		.menu {
+			line-height: 100px;
+
+			a {
+				color: #fff;
+				text-transform: uppercase;
+					text-decoration: none;
+			}
+		}
+
+		label {
+			font-size: 30px;
+			cursor: pointer;
+			display: none;
+		}
+
+		.menu a:hover,
+		.show-menu:hover,
+		.hide-menu:hover {
+			color: #3498db;
+		}
+
+	@include _tablet-middle {
+		.show_menu,.hide_menu {
+	    	display: block;
+		}
+
+		.menu {
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			background: #333;
+			right: -100%;
+			top: 0;
+			text-align: center;
+			padding: 80px 0;
+			line-height: normal;
+			transition: 0.7s;
+			a {
+				display: block;
+				padding: 20px;
+			}
+		}
+
+		.hide_menu {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+		}
+		#check:checked ~ .menu {
+			right: 0;
+		}
+	}
+}
+
+@mixin RadioCheck($classname, $size, $margin-right, $color, $shadow, $border-radius, $scaler: 0.2, $mode: desktop-middle) {
+	input[type=radio].#{$classname} + label:before {
+		content: "";
+		display: inline-block;
+		vertical-align:middle;
+		width: RelativeUnits($size, $scaler, $mode, horizontal);
+		height: RelativeUnits($size, $scaler, $mode, vertical);
+		margin-right: RelativeUnits($margin-right, $scaler, $mode, vertical);
+		background-color: $color;
+		box-shadow: #{$shadow};
+		border-radius: $border-radius * 1px;
+	}
+
+	input[type=radio].#{$classname}:checked + label:before {
+	  content: "\2022"; /* Bullet */
+	  color:white;
+	  background-color: #666;
+	  font-size:1.8em;
+	  text-align:center;
+	  line-height:14px;
+	  text-shadow:0px 0px 3px #eee;
+	}
+}
+
+input[type=checkbox] + label:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align:middle;
+  margin-right: 8px;
+  background-color: #aaa;
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+  border-radius: 4px;
+}
+
+input[type=checkbox]:checked + label:before {
+  content:"\2714"; /* Tick */
+  color:white;
+  background-color: #666;
+  text-align:center;
+  line-height:15px;
+  text-shadow:0px 0px 3px #eee;
+}

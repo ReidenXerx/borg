@@ -1,0 +1,24 @@
+@mixin SetFlexJustify ($justify_content: flex-start);
+@mixin SetFlexAlign ($align_items: flex-start);
+@mixin ToVertical ();
+@mixin ToHorizontal ();
+@mixin ToVertical-inverse ();
+@mixin ToHorizontal-inverse ();
+@mixin SetFontFamily($font_family);
+@mixin SetFontVars($font-weight, $letter-spacing, $color, $text-transform: inherit, $text-align: inherit);
+@mixin SetTextAlign($text-align: inherit);
+// first 3 params must sum 1
+@mixin SetFontLineSize($vmin-scaler, $vw-scaler, $rem-scaler, $font-size, $line-height, $mode: desktop-middle);
+// solid or picture
+@mixin SetBackground ($mode, $arg);
+@mixin SetPaddings ($up: 0, $down: 0, $left: 0, $right: 0);
+@mixin SetWidth-static ($width);
+// vertical or horizontal
+@mixin SetMargins ($orientation, $up-left: 0, $down-right: 0, $scaler: 1, $mode: desktop-middle);
+@mixin SetPaddings ($orientation, $up-left: 0, $down-right: 0, $scaler: 1, $mode: desktop-middle);
+@mixin SetWidth-responsive ($width, $scaler: 1, $mode: desktop-middle);
+@mixin Grid-area ($name);
+@mixin SmartGrid($width, $LIST-rows);
+@mixin TransformXY ($OffsetX, $OffsetY, $scaler: 1, $mode: desktop-middle);
+@mixin TransformScale ($ScaleX: 1, $ScaleY: 1);
+@mixin TransformRotate ($Rotate);
